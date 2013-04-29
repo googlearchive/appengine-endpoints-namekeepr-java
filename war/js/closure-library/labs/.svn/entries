@@ -1,0 +1,52 @@
+10
+
+dir
+57
+http://svn.danielacton.com/RememberMe/RememberMe/war/js/closure-library/labs
+http://svn.danielacton.com/RememberMe
+
+
+
+2013-03-18T15:27:52.297553Z
+23
+dacton
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+9e3dc596-a1c3-4ba4-9b3d-eae2e2882a5f
+
+classdef
+dir
+
+mock
+dir
+
+net
+dir
+
+object
+dir
+
+observe
+dir
+
+structs
+dir
+
+style
+dir
+
+testing
+dir
+

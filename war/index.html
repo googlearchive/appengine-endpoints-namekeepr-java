@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Namekeepr - your business cards in the cloud</title>
+  <link rel="stylesheet" type="text/css" href="/style/main.css" />
+</head>
+<body>
+  <div style="text-align: center">
+    <header>
+      <h1>NameKeepr</h1>
+      <h2>Your business cards in the cloud</h2>
+    </header>
+    <div id="status">Loading Namekeepr ...</div>
+    <div id="desktopDisplay"></div>
+    <div id="cardData"></div>
+  </div>
+  <script src="js/closure-library/base.js"></script>
+  <script type="text/javascript">
+    goog.require('goog.json');
+    goog.require('goog.net.XhrIo');
+    goog.require('goog.soy');
+  </script>
+  <script type="text/javascript"
+    src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script src="js/webgl.js"></script>
+  <script src="js/geo.js"></script>
+  <script src="js/cssviz.js"></script>
+  <script src="js/site.js"></script>
+  <script>
+      function init() {
+        // var ROOT = 'http://localhost:8888/_ah/api';
+        var ROOT = 'https://namekeepr.appspot.com/_ah/api';
+        gapi.client.load('businesscard', 'v1', function() {
+          handleList();
+        }, ROOT);
+    }
+     </script>
+  <script src="https://apis.google.com/js/client.js?onload=init"></script>
+
+  <script src="js/three.min.js"></script>
+  <script type="text/javascript" src="js/soyutils.js"></script>
+  <script type="text/javascript" src="js/businessCards.js"></script>
+</body>
+</html>

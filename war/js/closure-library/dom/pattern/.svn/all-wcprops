@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/RememberMe/!svn/ver/23/RememberMe/war/js/closure-library/dom/pattern
+END
+childmatches.js
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/RememberMe/!svn/ver/23/RememberMe/war/js/closure-library/dom/pattern/childmatches.js
+END
+matcher.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/RememberMe/!svn/ver/23/RememberMe/war/js/closure-library/dom/pattern/matcher.js
+END
+pattern.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/RememberMe/!svn/ver/23/RememberMe/war/js/closure-library/dom/pattern/pattern.js
+END
+abstractpattern.js
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/RememberMe/!svn/ver/23/RememberMe/war/js/closure-library/dom/pattern/abstractpattern.js
+END
+text.js
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/RememberMe/!svn/ver/23/RememberMe/war/js/closure-library/dom/pattern/text.js
+END
+fulltag.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/RememberMe/!svn/ver/23/RememberMe/war/js/closure-library/dom/pattern/fulltag.js
+END
+sequence.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/RememberMe/!svn/ver/23/RememberMe/war/js/closure-library/dom/pattern/sequence.js
+END
+allchildren.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/RememberMe/!svn/ver/23/RememberMe/war/js/closure-library/dom/pattern/allchildren.js
+END
+endtag.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/RememberMe/!svn/ver/23/RememberMe/war/js/closure-library/dom/pattern/endtag.js
+END
+pattern_test.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/RememberMe/!svn/ver/23/RememberMe/war/js/closure-library/dom/pattern/pattern_test.html
+END
+matcher_test.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/RememberMe/!svn/ver/23/RememberMe/war/js/closure-library/dom/pattern/matcher_test.html
+END
+nodetype.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/RememberMe/!svn/ver/23/RememberMe/war/js/closure-library/dom/pattern/nodetype.js
+END
+repeat.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/RememberMe/!svn/ver/23/RememberMe/war/js/closure-library/dom/pattern/repeat.js
+END
+tag.js
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/RememberMe/!svn/ver/23/RememberMe/war/js/closure-library/dom/pattern/tag.js
+END
+starttag.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/RememberMe/!svn/ver/23/RememberMe/war/js/closure-library/dom/pattern/starttag.js
+END
