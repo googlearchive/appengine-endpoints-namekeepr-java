@@ -1,40 +1,54 @@
 ## Project
+Metadata
+* Version: 1.0 April 2013
+* Author: Daniel Acton (http://plus.ly/daniel.acton)
+* For any comments, queries or suggestions, feel free to contact Daniel Acton
 
-Description: What does this project do and who does it serve?
+Namekeepr is a simple web application that is based on Google App Engine and shows a variety of concepts:
+* Google Cloud Endpoints;
+* Datastore;
+* Blobstore;
+* Image Service;
+* HTML5;
+* WebGL;
+* CSS3; and
+* Responsive Design.
 
-Include authorship, support contact and release information.
+The application is aimed at developers wishing to start using Google App Engine. There is a running instance at http://namekeepr.appspot.com. To use this source code, download it, modify it (as you wish) and deploy to your own Google App Engine instance.
 
 ## Project Setup, Installation, and Configuration
-How do I, as a developer, start working on the project?
+All information about Google App Engine projects, e.g. building and running are available at https://developers.google.com/appengine.
+The source code for this app is an Eclipse Project, so it's easiest to get started using Eclipse. If you don't want to use Eclipse, there are plenty command-line tools available to build and run the app.
 
-1. What dependencies does it have (where are they expressed) and how do I install them?
-1. Can I see the project working before I change anything?
+1. See the application running in the real-world: http://namekeepr.appspot.com
 
-## Testing
-How do I run the project's automated tests?
-
-* Unit Tests
-
-* Integration Tests
+2. Getting started
+* Install Eclipse and the Google Eclipse Plugin with the Google App Engine SDK Plugin (https://developers.google.com/appengine/docs/java/tools/eclipse)
+* Create a new Google Web Application project in Eclipse using this source code as the contents of the project
 
 ## Deploying
+1. Running locally
+* Generate the cloud endpoints (https://developers.google.com/appengine/docs/java/endpoints/gen_clients)
+* Run the script build.sh to generate the code for the templates
+* Run the project as a Web Application
+
+2. Deploying to Google App Engine
+* Follow instructions here: https://developers.google.com/appengine/docs/java/gettingstarted/uploading
+* Sign in using your Google Account
+* Create your own Google App Engine account (https://appengine.google.com)
+* Create an application in the Google App Engine console (https://appengine.google.com), named something unique
+* Change the name of the application in war/WEB-INF/appengine-web.xml and war/WEB-INF/web.xml to the name of the application you just set up in Google App Engine
+* In Eclipse, after you've generated Cloud Endpoints and run build.sh, right-click on your project and select "Deploy to Google App Engine"
 
 ### How to setup the deployment environment
 
-* Addons, packages, or other dependencies required for deployment.
-* Required environment variables or credentials not included in git.
-* Monitoring services and logging.
+When you create a new Web Application in Eclipse, it will configure your libraries for you. However there are some libraries you will need to download and include yourself. 
 
-### How to deploy
+* Gson
+    You will need to add the gson.jar from https://code.google.com/p/google-gson/ to the war/WEB-INF/lib directory. You will also need to add this library to your Eclipse build path.
 
-## Troubleshooting & Useful Tools
-
-### Examples of common tasks
-
-> e.g.
-> * How to make curl requests while authenticated via oauth.
-> * How to monitor background jobs.
-> * How to run the app through a proxy.
+* Google Closure Templates
+    The build.sh script uses the Google Closure compiler. Download it from here: https://code.google.com/p/closure-compiler/. Copy the file SoyToJsSrcCompiler.jar into the lib/ directory of the project.
 
 ## Contributing changes
 
