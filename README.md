@@ -23,6 +23,11 @@ All information about Google App Engine projects, e.g. building and running are 
 The source code for this app is an Eclipse Project, so it's easiest to get started using Eclipse. If you don't want to use Eclipse, there are plenty command-line tools available to build and run the app.
 See the application running in the real-world: http://namekeepr.appspot.com
 
+To get the source code, execute these commands in a working directory of your
+choice:
+git clone https://github.com/GoogleCloudPlatform/appengine-endpoints-namekeepr-java
+git submodule init
+
 #### Getting started
 * Install Java on your development environment so that it can be executed form the commandline 
 * Install Eclipse (http://www.eclipse.org)
