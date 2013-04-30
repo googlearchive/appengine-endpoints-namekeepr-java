@@ -1,0 +1,255 @@
+body {
+	background: #ffffff;
+	font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	font-size: 10pt;
+}
+
+nav {
+	clear: both;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+#desktopDisplay {
+	display: none;
+}
+
+#cardPanel,#businessCard,#deleteCardConfirmationPanel
+	{
+	border: 1px solid #c0c0c0;
+	background-color: white;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	padding: 10px;
+	-moz-box-shadow: 0px 0px 8px #888;
+	-webkit-box-shadow: 0px 0px 8px #888;
+	box-shadow: 0px 0px 8px #888;
+	-webkit-box-shadow: 0px 0px 8px #888;
+	margin: 0 auto;
+}
+
+#status {
+	clear: both;
+	padding: 10px;
+	transition: color 0.5s;
+	-moz-transition: color 0.5s;
+	-webkit-transition: color 0.5s;
+	margin: 0 auto;
+	border: 1px solid #c0c0c0;
+	padding: 0;
+	color: #c0c0c0;
+	background-image: url('/images/ajax-loader.gif');
+	background-repeat: no-repeat;
+	background-position: right;
+	margin-bottom: 10px;
+}
+
+h1 {
+	display: inline;
+	font-size: 2em;
+}
+
+h2 {
+	display: inline;
+	margin-left: 1em;
+	font-style: italic;
+	font-size: 1.5em;
+}
+
+.panelLabel {
+	width: 50%;
+	float: left;
+	margin-top: 3px;
+	font-size: 1em;
+	clear: left;
+	font-weight: bold;
+}
+
+.panelInput {
+	width: 50%;
+	float: left;
+	clear: right;
+}
+
+@media only screen and (max-width: 640px) {
+	body {
+		background: #ffffff;
+	}
+	#rolodex {
+		width: 100%;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: 20px;
+	}
+	.formRow {
+		
+	}
+	h1 {
+		font-size: 1.5em;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		display: block;
+	}
+	h2 {
+		margin-left: 0;
+		font-size: 1.2em;
+		margin-top: 0px;
+		margin-bottom: 5px;
+		display: block;
+	}
+	nav ul {
+		list-style: none;
+	}
+	#cardPanel,#businessCard,#deleteCardConfirmationPanel
+		{
+		width: 320px;
+	}
+	#status {
+		width: 320px;
+	}	
+	.panelLabel {
+		width: 100%;
+	}
+	.panelInput {
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 640px) {
+	body {
+		background: #ffffff;
+	}
+	nav ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	nav li {
+		float: left;
+		margin: 0 0.15em;
+	}
+	nav li a {
+		background: #c0c0c0;
+		height: 2em;
+		line-height: 2em;
+		float: left;
+		width: 9em;
+		display: block;
+		border: 0.1em solid #dcdce9;
+		color: #0d2474;
+		text-decoration: none;
+		text-align: center;
+	}
+	#rolodex {
+		width: 640px;
+		margin: 0 auto;
+	}
+	.formRow {
+		clear: both;
+	}
+	#cardPanel,#businessCard,#deleteCardConfirmationPanel
+		{
+		width: 500px;
+	}
+	#status {
+		width: 500px;
+	}	
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) , only screen and
+		(min--moz-device-pixel-ratio: 1.5) , only screen and
+	(min-device-pixel-ratio: 1.5) {
+	body {
+		background: #ffffff;
+	}
+}
+
+#createForm input[type="text"]:disabled {
+	border: 0;
+	background-color: white;
+}
+
+#cardData input[type="button"] {
+	font-size: 1em;
+	font-weight: bold;
+	border: 1px solid rgb(3, 126, 240);
+	background-color: rgb(3, 126, 240);
+	color: white;
+}
+
+#createForm {
+	clear: both;
+}
+
+#img {
+	width: 320px;
+	height: 240px;
+}
+
+.instruction {
+	font-weight: bold;
+	font-size: 1.2em;
+	line-height: 1.5;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	clear: both;
+	text-align: left;
+}
+
+#businessCardsNonWebGlContainer {
+	width: 180px;
+	height: 140px;
+	position: relative;
+	margin: 40px auto 80px;
+	border: 0;
+	-webkit-perspective: 1400px;
+	-moz-perspective: 1400px;
+	-o-perspective: 1400px;
+	perspective: 1400px;
+	display: block;
+}
+
+#businessCardsNonWebGl {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transition: -webkit-transform 1s;
+	-moz-transition: -moz-transform 1s;
+	-o-transition: -o-transform 1s;
+	transition: transform 1s;
+}
+
+#businessCardsNonWebGl img {
+	display: block;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 160px;
+	height: 120px;
+	border: 1px solid black;
+	color: white;
+	text-align: center;
+	-webkit-transition: opacity 1s, -webkit-transform 1s;
+	-moz-transition: opacity 1s, -moz-transform 1s;
+	-o-transition: opacity 1s, -o-transform 1s;
+	transition: opacity 1s, transform 1s;
+}
+
+#latitude,#longitude {
+	width: 6em;
+}
+
+#mainContent {
+	width: 100%;
+	text-align: center;
+}
