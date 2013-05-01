@@ -30,8 +30,8 @@
   <script src="js/site.js"></script>
   <script>
       function init() {
-        // var ROOT = 'http://localhost:8888/_ah/api';
-        var ROOT = 'https://namekeepr.appspot.com/_ah/api';
+        var ROOT = 'http://localhost:8888/_ah/api';
+        // var ROOT = 'https://yourappid.appspot.com/_ah/api';
         gapi.client.load('businesscard', 'v1', function() {
           handleList();
         }, ROOT);
