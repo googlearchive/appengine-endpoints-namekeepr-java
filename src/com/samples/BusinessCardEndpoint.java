@@ -42,7 +42,7 @@ public class BusinessCardEndpoint {
     try {
       mgr = PMF.get().getPersistenceManager();
       Query query = mgr.newQuery(BusinessCard.class);
-      if (cursorString != null && cursorString != "") {
+      if (cursorString != null && !("".equals(cursorString))) {
         cursor = Cursor.fromWebSafeString(cursorString);
         Map<String, Object> extensionMap = new HashMap<String, Object>();
         extensionMap.put(JDOCursorHelper.CURSOR_EXTENSION, cursor);
