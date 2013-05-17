@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+<head>
+<title>Presentation</title>
+
+<meta charset='utf-8'>
+<script src='slides.js'></script>
+</head>
+
+<style>
+/* Your individual styles here, or just use inline styles if that’s
+       what you want. */
+</style>
+
+<body style='display: none'>
+
+  <section class='slides layout-regular template-default'>
+
+    <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+
+
+
+    <article class='biglogo'></article>
+
+    <article>
+      <h1>
+        Scalable web applications <br> with Google Cloud Platform
+      </h1>
+      <p>
+        Daniel Acton <br> May 18, 2013
+      </p>
+    </article>
+
+    <article>
+      <h3>Agenda</h3>
+      <ul>
+        <li>Scale - what is it and why do we care?</li>
+        <li>Google Cloud Platform</li>
+        <li>An example app</li>
+        <li>The Challenge</li>
+      </ul>
+      <p>
+        These slides: <a href="http://namekeepr.appspot.com/slides/">http://namekeepr.appspot.com/slides/</a>
+      </p>
+    </article>
+
+    <article>
+      <h3>Scale - what is it and why do we care?</h3>
+      <table>
+        <tr>
+          <td style="border: 0">
+            <h3>More:</h3>
+            <ul>
+              <li>Users</li>
+              <li>Devices</li>
+              <li>Screens</li>
+              <li>Browsers</li>
+              <li>Data</li>
+            </ul>
+          </td>
+          <td style="border: 0"><img style='height: 500px'
+            src='images/confused-gandalf.png'></td>
+          <td style="border: 0">
+            <h3>Less:</h3>
+            <ul>
+              <li>Complexity</li>
+              <li>Cost</li>
+              <li>Complexity</li>
+              <li>Code</li>
+              <li>Complexity</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </article>
+    <article>
+      <h3>Google Cloud Platform</h3>
+      <p>
+      <ul>
+        <li>Google App Engine - Host your application</li>
+        <li>Google Compute Engine - Host your VMs</li>
+        <li>Google Cloud Storage - Host your files</li>
+        <li>Google BigQuery - Analyze data</li>
+        <li>Google Cloud SQL - Host your databases</li>
+        <li><span class='red'>New! </span>Cloud DataStore</li>
+        <li>Details at <a href="http://cloud.google.com">cloud.google.com</a></li>
+      </ul>
+      </p>
+      <img class="centered" style="width: 800px" src='images/cloud-products.png'>
+    </article>
+    <article>
+      <h3>Namekeepr - an example app</h3>
+      <ul>
+        <li><a href="https://namekeepr.appspot.com">https://namekeepr.appspot.com</a></li>
+        <li><span class='red'>Google App Engine</span></li>
+        <li><span class='blue'>Google Cloud Endpoints</span></li>
+        <li><span class='green'>Datastore</span></li>
+        <li><span class='yellow'>Blobstore</span></li>
+        <li><span class='black'>Image Service</span></li>
+        <li><span class='red'>HTML5 + WebGL</span></li>
+        <li><span class='blue'>CSS3 + Media Queries</span></li>
+        <li><span class='green'>Google Closure</span></li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Google App Engine</h3>
+      <ul>
+        <li><a href="http://developers.google.com/appengine">developers.google.com/appengine</a>
+        <li>Web Application Server
+        <li>Free quota
+        <li>Scales infinitely
+        <li>Java or Python (or Go)</li>
+        <li><span class='red'>New! </span>PHP support</li>
+        <li>Loads of easy-to-use APIs to help you
+      </ul>
+    </article>
+
+    <article>
+      <h3>Google Cloud Endpoints</h3>
+      <img class="centered" style="width: 800px" src='images/gce.png'>
+      <ul>
+        <li>You write the entities and CRUD logic
+        <li>Your backends as REST APIs
+        <li>Consume your API from web or app
+      </ul>
+    </article>
+
+    <article class="smaller">
+      <h3>Google Cloud Endpoints - entity classes</h3>
+      <p>Step 1: Create a POJO class and annotate it with JDO/JPA</p>
+      <section>
+        <pre>
+@PersistenceCapable
+public class SomeEntity { ... }
+    </pre>
+      </section>
+      <p>Step 2: Give it an some fields (one of which is a primary key)</p>
+      <section>
+        <pre>
+@PrimaryKey
+@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+private Long id;
+
+@Persistent
+private String name;
+    </pre>
+      </section>
+    </article>
+
+    <article class="smaller">
+      <h3>Google Cloud Endpoints - endpoint classes</h3>
+      <p>Step 1: Create a POJO class and annotate it</p>
+      <section>
+        <pre>
+@Api(name = "myapi", version = "v1", description = "My API")
+public class BusinessCardEndpoint {...}
+    </pre>
+      </section>
+      <p>Step 2: Create methods and annotate them</p>
+      <section>
+        <pre>
+@ApiMethod(name = "list", path = "/list", httpMethod = HttpMethod.GET)
+public CollectionResponse&lt;BusinessCard&gt; listBusinessCards(
+  @Nullable @Named("cursor") String cursorString,
+  @Nullable @Named("limit") Integer limit) 
+  {...}
+    </pre>
+      </section>
+      <p>Each method returns a POJO which can be used by the caller (e.g.
+        JSON on the web)</p>
+    </article>
+
+    <article>
+      <h3>Google Cloud Endpoints - generate library</h3>
+      <ul>
+        <li>In Eclipse</li>
+      </ul>
+      <img class="centered" style="width: 800px" src='images/gen-gce.png'>
+      <ul>
+        <li><a
+          href="http://developers.google.com/appengine/docs/java/endpoints/gen_clients">Or
+            on the command line</a></li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Datastore</h3>
+      <ul>
+        <li>Non-relational database with JDO/JPA</li>
+        <li>Store arbitrary data (serialize your objects)</li>
+      </ul>
+      <section>
+        <pre>
+DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+Entity person = new Entity("Person");
+person.setProperty("name", "Dan");
+person.setProperty("hairColour", "brown");
+ds.put(person);
+    </pre>
+      </section>
+    </article>
+
+    <article>
+      <h3>Datastore</h3>
+      <ul>
+        <li>Retrieve data</li>
+      </ul>
+      <pre>
+Filter filter =
+  new FilterPredicate("hairColour",
+                      FilterOperator.EQUAL,
+                      "brown");
+Query q = new Query("Person").setFilter(filter);
+PreparedQuery pq = ds.prepare(q);
+for (Entity result : pq.asIterable()) {
+  // Do some stuff
+}
+    </pre>
+    </article>
+
+    <article>
+      <h3>Blobstore</h3>
+      <ul>
+        <li>Store arbitrary data of arbitrary size</li>
+        <li>On the server side: get the upload URL</li>
+      </ul>
+      <section>
+        <pre>
+BlobstoreService svc = BlobstoreServiceFactory.getBlobstoreService();
+String postUrl = blobstoreService.createUploadUrl("/upload");
+    </pre>
+      </section>
+      <ul>
+        <li>On the client side: POST to the upload URL</li>
+      </ul>
+      <pre>
+&lt;form method="post" action="&lt;%=postUrl%&gt;"&gt;
+    </pre>
+    </article>
+
+    <article>
+      <h3>Image Service</h3>
+      <ul>
+        <li>Store your images in Blobstore (without the complication)</li>
+        <li>Transform images on the fly</li>
+      </ul>
+      <section>
+        <pre>
+ImagesService imagesService = ImagesServiceFactory.getImagesService();
+
+Image oldImage = ImagesServiceFactory.makeImage(oldImageData);
+Transform resize = ImagesServiceFactory.makeResize(200, 300);
+
+byte [] newImageData = 
+  imagesService.applyTransform(resize, oldImage).getImageData();
+    </pre>
+      </section>
+    </article>
+
+    <article>
+      <h3>HTML5</h3>
+      <ul>
+        <li>WebGL - Three.js</li>
+        <li>Geolocation</li>
+      </ul>
+      <pre>
+navigator.geolocation.getCurrentPosition(successFn, failureFn);
+  </pre>
+      <ul>
+        <li>Canvas</li>
+      </ul>
+      <pre>
+var c = document.getElementById('canvas');
+var ctx = c.getContext('2d');
+var img = document.getElementById('img');
+ctx.drawImage(img, 0, 0);
+  </pre>
+    </article>
+
+    <article>
+      <h3>HTML5</h3>
+      <ul>
+        <li>File Reader API</li>
+      </ul>
+      <pre>
+var file = document.querySelector('input[type=file]').files[0];
+var reader = new FileReader();
+
+reader.onload = function(e) {
+  // Do stuff, like show it on a canvas for preview
+}
+
+reader.readAsDataURL(file);
+  </pre>
+    </article>
+
+    <article>
+      <h3>Media Queries</h3>
+      <pre>
+@media only screen and (max-width: 640px) { ... }
+@media only screen and (min-width: 640px) { ... }
+  </pre>
+      <h3>CSS Transforms</h3>
+      <pre>
+#myDiv {
+  transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+}
+
+document.querySelector('#myDiv').style.color = 'red';
+  </pre>
+    </article>
+
+    <article class="smaller">
+      <h3>Google Closure</h3>
+      <p>Closure Templates (a.k.a Soy Templates)
+      <pre>
+{template .helloWorld}
+ Hello world!
+{/template}
+</pre>
+      <p>Closure Library: XmlHttpRequest</p>
+      <pre>
+goog.require('goog.net.XhrIo');
+    
+var http1 = new goog.net.XhrIo();
+http1.send('/uploadUrl', 'GET');
+goog.events.listen(http1, 
+  goog.net.EventType.COMPLETE, function(e) {
+  // React to the HTTP response
+  }
+);
+  </pre>
+    </article>
+
+    <article>
+      <h3>Google Closure</h3>
+
+      <p>Closure Library: Templates</p>
+      <pre>
+goog.require('goog.soy');
+goog.soy.renderElement(element, helloWorld);
+  </pre>
+      <p>Closure Library: Namespacing</p>
+      <pre>
+goog.provide('mylib.namespace');
+  </pre>
+    </article>
+
+    <article>
+      <h3>The challenge</h3>
+      <p>
+        <b>Step 1:</b> Download the source code for Namekeepr <a
+          href="https://github.com/GoogleCloudPlatform/appengine-endpoints-namekeepr-java">https://github.com/GoogleCloudPlatform/appengine-endpoints-namekeepr-java</a>.
+      </p>
+      <p>
+        <b>Step 2:</b> Change the code to implement one of the below
+      </p>
+      <ul>
+        <li>Support for offline storage</li>
+        <li>The next 5 billion: support for feature phones</li>
+        <li>Implement a search API</li>
+        <li>Use Tasks to perform some operation e.g. OCR</li>
+        <li>Implement OAuth and user-specific cards</li>
+      </ul>
+    </article>
+    <article>
+      <h3>The challenge</h3>
+      <p>
+        <b>Step 3:</b> Upload your web application to your own Google App Engine
+        instance
+      </p>
+      <p>
+        <b>Step 4:</b> Fill out this form: <a href="http://goo.gl/C0nRX">http://goo.gl/C0nRX</a>
+      </p>
+      <p>&nbsp;</p>
+      <h3>There are 2 prizes: a Nexus 4 and Nexus 7</h3>
+      <p>Criteria for winner:</p>
+      <ul>
+        <li>Submit form and upload before End of Day on 25 May 2013
+          (winners announced by Friday 31 May)</li>
+        <li>In your submission you must indicate which problem you solved</li>
+        <li>The solution must be functionally complete</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Thank you!</h3>
+      <p>Useful links</p>
+      <ul>
+        <li><a
+          href="https://github.com/GoogleCloudPlatform/appengine-endpoints-namekeepr-java">https://github.com/GoogleCloudPlatform/appengine-endpoints-namekeepr-java</a></li>
+        <li>These slides: <a href="http://namekeepr.appspot.com/slides/">http://namekeepr.appspot.com/slides/</a></li>
+        <li><a href="https://namekeepr.appspot.com">https://namekeepr.appspot.com</a></li>
+      </ul>
+    </article>
+
+  </section>
+
+</body>
+</html>
+

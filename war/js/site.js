@@ -150,7 +150,7 @@ function handleDelete(state) {
 	} else if (state == 2) {
 		// User confirms deletion
 		workUpdate(true);
-		document.querySelector('#cardPanel').style.display = 'none';
+		document.querySelector('#deleteCardConfirmationPanel').style.display = 'none';
 		gapi.client.businesscard.remove({id: id}).execute(showCardDeleteResult);
 	} else if (state == 3) {
 		// User cancels deletion

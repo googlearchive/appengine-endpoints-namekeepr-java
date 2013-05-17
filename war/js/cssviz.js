@@ -31,7 +31,7 @@ rememberme.cssviz.CardTorus = function(element, data, w, h) {
 	
 	this.numCards = data.length;
 	if (data.length < 3) {
-		this.numCards = 3;
+		this.numCards = 4;
 	}
 
 	this.degBetweenCards = 360 / this.numCards;
@@ -62,11 +62,7 @@ rememberme.cssviz.CardTorus.prototype.init = function() {
 	
 	var len = this.businessCards.length;
 	var i = len;
-	if (len < 3) {
-		this.numCards = 3;
-		this.degBetweenCards = 120;
-		this.radius = Math.round((this.width / 2) / Math.tan(Math.PI / 3));
-		
+	if (len < 3) {	
 		// Add blank cards to fill to 3
 		for (; i < 3; i++) {
 			var tmp = {
@@ -91,6 +87,9 @@ rememberme.cssviz.CardTorus.prototype.init = function() {
 			name : 'moarcard' + (i++)
 	};
 	this.businessCards.push(tmp);
+	
+  this.numCards = this.businessCards.length;
+  this.degBetweenCards =  360 / this.numCards;
 	
 	for (var i = 0; i < this.businessCards.length; i++) {
 		// Create the card elements and rotate them
