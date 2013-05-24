@@ -120,10 +120,11 @@ public class BusinessCardEndpoint {
    */
   @ApiMethod(name = "update", httpMethod = HttpMethod.PUT, path = "businesscard/{id}")
   public BusinessCard updateBusinessCard(BusinessCard card) {
-    card = BusinessCard.Merge(getBusinessCard(card.getId()), card);
-    card.setLastModified(new Date());
     PersistenceManager mgr = PMF.get().getPersistenceManager();
     try {
+      BusinessCard updCard = mgr.getObjectById(BusinessCard.class, card.getId());
+      updCard.setName(card.getName());
+      updCard.setLastModified(new Date());
       mgr.makePersistent(card);
     } finally {
       mgr.close();

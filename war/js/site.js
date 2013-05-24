@@ -100,7 +100,7 @@ function handleList() {
 	document.querySelector('#cardData').style.display = 'none';
     document.querySelector('#desktopDisplay').style.display = 'block';
     goog.soy.renderElement(document.querySelector('#desktopDisplay'), rememberme.template.cardDisplayPanel);
-    gapi.client.businesscard.list().execute(displayBusinessCards);
+    gapi.client.businesscard.list({}).execute(displayBusinessCards);
 }
 
 /**
@@ -186,7 +186,7 @@ function showCardDeleteResult(resp) {
 		statusMessage('Successfully deleted card', false);
 	} else {
 		statusMessage('Failed to delete card', true);
-		document.querySelector('#cardPanel').style.display = 'block';
+		document.querySelector('#deleteCardConfirmationPanel').style.display = 'block';
 	}
 	workUpdate(false);
 	handleList();
