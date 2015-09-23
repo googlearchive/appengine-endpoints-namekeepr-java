@@ -1,3 +1,7 @@
+![status: inactive](https://img.shields.io/badge/status-inactive-red.svg)
+
+This project is no longer actively developed or maintained.  
+
 ## Project
 ####Metadata
 * Version: 1.0 April 2013
