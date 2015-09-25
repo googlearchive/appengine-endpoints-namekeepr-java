@@ -100,7 +100,7 @@ function handleList() {
 	document.querySelector('#cardData').style.display = 'none';
     document.querySelector('#desktopDisplay').style.display = 'block';
     goog.soy.renderElement(document.querySelector('#desktopDisplay'), rememberme.template.cardDisplayPanel);
-    gapi.client.businesscard.list().execute(displayBusinessCards);
+    gapi.client.businesscard.list({}).execute(displayBusinessCards);
 }
 
 /**
@@ -150,7 +150,7 @@ function handleDelete(state) {
 	} else if (state == 2) {
 		// User confirms deletion
 		workUpdate(true);
-		document.querySelector('#cardPanel').style.display = 'none';
+		document.querySelector('#deleteCardConfirmationPanel').style.display = 'none';
 		gapi.client.businesscard.remove({id: id}).execute(showCardDeleteResult);
 	} else if (state == 3) {
 		// User cancels deletion
@@ -186,7 +186,7 @@ function showCardDeleteResult(resp) {
 		statusMessage('Successfully deleted card', false);
 	} else {
 		statusMessage('Failed to delete card', true);
-		document.querySelector('#cardPanel').style.display = 'block';
+		document.querySelector('#deleteCardConfirmationPanel').style.display = 'block';
 	}
 	workUpdate(false);
 	handleList();

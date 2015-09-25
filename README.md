@@ -29,6 +29,7 @@ See the application running in the real-world: [here](http://namekeepr.appspot.c
 
 To get the source code, execute these commands in a working directory of your choice:
 >      git clone https://github.com/GoogleCloudPlatform/appengine-endpoints-namekeepr-java
+>      cd appengine-endpoints-namekeepr-java
 >      git submodule init
 >      git submodule update
 
@@ -38,7 +39,8 @@ To get the source code, execute these commands in a working directory of your ch
 * Install the [Google Eclipse Plugin](https://developers.google.com/appengine/docs/java/tools/eclipse) - be sure to install the Google App Engine SDK option.
 * Create a new Google Web Application project in Eclipse using this source code as the contents of the project
 * Get the source code from the Github repository into a directory other than your Eclipse project directory, using these commands:
->        git clone https://github.com/GoogleCloudPlatform/appengine-endpoints-namekeepr-java 
+>        git clone https://github.com/GoogleCloudPlatform/appengine-endpoints-namekeepr-java
+>        cd appengine-endpoints-namekeepr-java
 >        git submodule init
 >        git submodule update
 
